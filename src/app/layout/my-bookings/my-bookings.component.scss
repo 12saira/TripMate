@@ -1,0 +1,118 @@
+.booking-list {
+    padding: 20px;
+  }
+  
+  .booking-card {
+    margin-bottom: 20px;
+  }
+  
+  .p-card-custom {
+    padding: 20px;
+    //border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fff;
+    //box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .booking-container {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .booking-details {
+    flex: 1;
+    padding-right: 20px;
+  }
+  
+  .property-name {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .property-location,
+  .property-category {
+    font-size: 1rem;
+    color: #777;
+    margin: 5px 0;
+  }
+  
+  .property-description {
+    margin-top: 15px;
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  .booking-dates p,
+  .booking-status {
+    font-size: 1rem;
+    color: #555;
+    margin: 10px 0;
+  }
+  
+  .edit-button {
+    color: #007ad9;
+    font-size: 1rem;
+    margin-top: 15px;
+  }
+  
+  .save-button {
+    background-color: #4caf50;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .rating-review {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  .rating-review h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .submit-review-button {
+    background-color: #ff4081;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .booking-image {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .property-image {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .booking-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    position: relative;
+    margin-bottom: 30px;
+  }
+  
+  .booking-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #ff4081; /* Accent color to match the theme */
+    margin: 10px auto 0;
+    border-radius: 2px;
+  }
+  
+  

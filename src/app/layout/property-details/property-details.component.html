@@ -1,0 +1,35 @@
+<div *ngIf="propertyData" class="property-details-container">
+    <p-card class="property-card">
+      <div class="content-wrapper">
+        <!-- Left side - Image -->
+        <div class="image-section">
+          <img [src]="propertyData.imgUrl" alt="{{ propertyData.name }}" class="property-image" />
+        </div>
+  
+        <!-- Right side - Content -->
+        <div class="details-section">
+          <h2 class="property-title">{{ propertyData.name }}</h2>
+          
+          <div class="property-info">
+            <p><strong>Location:</strong> {{ propertyData.location }}</p>
+            <p><strong>Category:</strong> {{ propertyData.category }}</p>
+          </div>
+  
+          <div class="rating">
+         
+            <ng-container *ngFor="let star of [1, 2, 3, 4, 5]">
+              <fa-icon
+                [icon]="star <= propertyData.ratings ? faStar : faStarEmpty"
+                [ngClass]="star <= propertyData.ratings ? 'filled-star' : 'empty-star'"
+              ></fa-icon>
+            </ng-container>
+          </div>
+  
+          <p class="description">{{ propertyData.description }}</p>
+  
+          <button pButton label="Book" (click)="onBook(propertyData.id)" class="p-button-danger book-button"></button>
+          <button pButton label="Explore More" (click)="navigateToHome()" class="p-button-secondary"></button>
+        </div>
+      </div>
+    </p-card>
+  </div>

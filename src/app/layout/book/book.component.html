@@ -1,0 +1,78 @@
+<p-card header="Book Property Tour" class="property-booking-form">
+    <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+      <!-- Start Date -->
+      <div class="form-group">
+        <label for="startDate">Start Date</label><span>*</span> <br>
+        <p-calendar
+          id="startDate"
+          formControlName="startDate"
+          dateFormat="yy-mm-dd"
+          [showIcon]="true"
+          placeholder="Select Start Date"
+        ></p-calendar>
+        <div *ngIf="bookingForm.get('startDate')?.invalid && bookingForm.get('startDate')?.touched">
+          <small class="error-text">Start date is required.</small>
+        </div>
+      </div>
+  
+      <!-- End Date -->
+      <div class="form-group">
+        <label for="endDate">End Date</label><span>*</span> <br>
+        <p-calendar
+          id="endDate"
+          formControlName="endDate"
+          dateFormat="yy-mm-dd"
+          [showIcon]="true"
+          placeholder="Select End Date"
+        ></p-calendar>
+        <div *ngIf="bookingForm.get('endDate')?.invalid && bookingForm.get('endDate')?.touched">
+          <small class="error-text">End date is required.</small>
+        </div>
+      </div>
+  
+      <!-- Quantity of Rooms -->
+      <div class="form-group">
+        <label for="roomQuantity">Quantity of Rooms</label><span>*</span> <br>
+        <p-inputNumber
+          id="roomQuantity"
+          formControlName="roomQuantity"
+          mode="decimal"
+          placeholder="Select Room Quantity"
+          [showButtons]="true"
+          [min]="1"
+          [max]="20"
+        ></p-inputNumber>
+        <div *ngIf="bookingForm.get('roomQuantity')?.invalid && bookingForm.get('roomQuantity')?.touched">
+          <small class="error-text">Room quantity is required.</small>
+        </div>
+      </div>
+  
+      <!-- Total Price Display -->
+      <div class="form-group">
+        <label> <strong>Total Price (in Rs.) : </strong></label>
+        <span style="font-weight: bold;">{{  totalPrice }}</span>
+      </div>
+  
+      <!-- Submit Button -->
+      <div class="form-group d-flex justify-content-end gap-3">
+        <button
+          pButton
+          type="submit"
+          
+          class="p-button p-button-danger"
+          [disabled]="bookingForm.invalid || loading"
+        >
+          <ng-container *ngIf="!loading">Submit</ng-container>
+          <ng-container *ngIf="loading">Submitting...</ng-container>
+        </button>
+        <button
+          pButton
+          label="Cancel"
+          class="p-button p-button-secondary"
+          (click)="onCancel()"
+        >
+        </button>
+      </div>
+     
+    </form>
+  </p-card>

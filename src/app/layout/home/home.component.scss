@@ -1,0 +1,162 @@
+.property-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .property-card {
+    width: 300px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+  }
+  
+  .image-container {
+    width: 100%;
+    height: 180px; /* Fixed height for uniform display */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5; /* Optional background color for consistency */
+    border-radius: 4px;
+  }
+  
+  .property-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image fills the container without distorting aspect ratio */
+  }
+  
+  .property-details {
+    padding: 1rem;
+  }
+  
+  .property-details h2 {
+    margin: 0;
+    font-size: 1.2em;
+  }
+  
+  .property-details p {
+    margin: 0.2rem 0;
+  }
+  .rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .gold-star {
+    color: gold;
+  }
+  
+  .grey-star {
+    color: #ccc;
+  }
+  
+  fa-icon {
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  .view-more {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #007BFF;
+    text-decoration: none;
+  }
+  
+  .view-more:hover {
+    text-decoration: underline;
+  }
+  
+  .book-button {
+    display: block;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  .recommend-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .recommend-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #000000; /* Customize this color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    animation: pulse 1.5s infinite;
+  }
+  
+  /* Pulse Animation */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* Bouncing Animation (Alternative) */
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+  .recommend-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 600px; /* Limits the width of the search bar */
+    padding: 10px;
+  }
+  
+  .p-inputtext {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 50px;
+    outline: none;
+  }
+  
+  .search-icon {
+    background-color: #007bff;
+    border-radius: 50%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-icon:hover {
+    background-color: #0056b3;
+  }
+  
+  
+  /* Uncomment the following line to use the bounce animation instead */
+  /* .recommend-button { animation: bounce 2s infinite; } */
+  
+  
+  

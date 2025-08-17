@@ -1,0 +1,95 @@
+<p-card header="Register Property" class="property-form">
+    <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
+      
+      <!-- Property Name -->
+      <div class="form-group">
+        <label for="name">Name</label><span>*</span>
+        <input pInputText id="name" formControlName="name" placeholder="Enter property name" />
+        <div *ngIf="propertyForm.get('name')?.invalid && propertyForm.get('name')?.touched">
+          <small class="error-text">Name is required.</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label><span>*</span>
+        <input pInputText id="email" formControlName="email" placeholder="Enter email" />
+        <!-- <div *ngIf="propertyForm.get('name')?.invalid && propertyForm.get('name')?.touched">
+          <small class="error-text">Name is required.</small>
+        </div> -->
+      </div>
+  
+      <!-- Property Category -->
+      <div class="form-group">
+        <label for="category">Category</label><span>*</span>
+        <input pInputText id="category" formControlName="category" placeholder="Enter property category" />
+        <div *ngIf="propertyForm.get('category')?.invalid && propertyForm.get('category')?.touched">
+          <small class="error-text">Category is required.</small>
+        </div>
+      </div>
+  
+      <!-- Property Location -->
+      <div class="form-group">
+        <label for="location">Location</label><span>*</span>
+        <input pInputText id="location" formControlName="location" placeholder="Enter property location" />
+        <div *ngIf="propertyForm.get('location')?.invalid && propertyForm.get('location')?.touched">
+          <small class="error-text">Location is required.</small>
+        </div>
+      </div>
+  
+      <!-- Property Description -->
+      <div class="form-group">
+        <label for="description">Description</label><span>*</span>
+        <textarea pInputTextarea id="description" formControlName="description" rows="4" placeholder="Enter property description"></textarea>
+        <div *ngIf="propertyForm.get('description')?.invalid && propertyForm.get('description')?.touched">
+          <small class="error-text">Description is required.</small>
+        </div>
+      </div>
+        <!-- Price -->
+        <div class="form-group">
+            <label for="price">Price (per night in Rs.)</label><span>*</span>
+            <input pInputText type="number" id="price" formControlName="price" placeholder="Enter property price per night" />
+        <div *ngIf="propertyForm.get('price')?.invalid && propertyForm.get('price')?.touched">
+          <small class="error-text">Price is required.</small>
+        </div>
+          </div>
+         <!-- Image Upload (Property Image) -->
+<div class="form-group">
+    <label for="imgUrl">Image of your property</label><span>*</span><br>
+    <input type="file" id="imgUrl" (change)="onFileSelect($event, 'imgUrl')" accept="image/*" />
+</div>
+
+<!-- Display Property Image Preview -->
+<div *ngIf="filePreview.imgUrl">
+    <h3>Property Image Preview:</h3>
+    <img [src]="filePreview.imgUrl" alt="Property Image" style="max-width: 200px; max-height: 200px;" />
+</div>
+
+<!-- Document Upload -->
+<div class="form-group">
+    <label for="imgDocUrl">Document</label><span>*</span><br>
+    <input type="file" id="imgDocUrl" (change)="onFileSelect($event, 'imgDocUrl')" accept="image/*" />
+</div>
+
+<!-- Display Document Preview -->
+<div *ngIf="filePreview.imgDocUrl">
+    <h3>Document Preview:</h3>
+    <img [src]="filePreview.imgDocUrl" alt="Document Image" style="max-width: 200px; max-height: 200px;" />
+</div>
+
+      <!-- Features Section -->
+<div formArrayName="features">
+    <label>Amenities</label>
+    <div *ngFor="let feature of features.controls; let i = index" [formGroupName]="i" class="p-field-checkbox">
+      <p-checkbox
+        formControlName="status"  
+        label="{{ feature.value.name }}"
+        [binary]="true"
+          ></p-checkbox>
+    
+    </div>
+  </div>
+  
+      <!-- Submit Button -->
+      <button pButton type="submit" label="Submit" class="p-button"></button>
+    </form>
+  </p-card>
+  

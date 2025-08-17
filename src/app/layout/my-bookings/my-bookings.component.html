@@ -1,0 +1,40 @@
+<div *ngFor="let booking of bookings">
+  <p-card class="p-card-custom">
+    <div class="booking-container">
+      <div class="booking-details">
+        <h3 class="property-name">{{ booking.property.name }}</h3>
+        <p class="property-description">{{ booking.property.description }}</p>
+
+        <div class="booking-dates">
+          <p><strong>Check In:</strong> {{ booking.startDate | date: 'yyyy-MM-dd' }}</p>
+          <p><strong>Check Out:</strong> {{ booking.endDate | date: 'yyyy-MM-dd' }}</p>
+        </div>
+
+        <p class="booking-status"><strong>Status:</strong> {{ booking.status }}</p>
+
+        <!-- Rating and Review Form -->
+        <div class="rating-review">
+          <h4>Rating & Review</h4>
+          <form [formGroup]="bookingForms[booking.id]" (ngSubmit)="submitRating(booking.id, booking.property.id)">
+            <div class="form-group">
+              <label for="rating_score">Rating Score:</label> <br>
+              <p-inputNumber formControlName="rating_score" [min]="1" [max]="5" [showButtons]="true"></p-inputNumber>
+            </div> <br>
+
+            <div class="form-group">
+              <label for="review">Review & Recommendation:</label> <br>
+              <textarea pInputTextarea formControlName="review" rows="4" cols="100"></textarea>
+            </div>
+
+            <button pButton label="Submit Review" icon="pi pi-check" type="submit" class="submit-review-button"></button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Booking Image on the Right -->
+      <div class="booking-image">
+        <img [src]="getImageUrl(booking.property.imgUrl)" alt="{{ booking.property.name }}" class="property-image" />
+      </div>
+    </div>
+  </p-card>
+</div>
